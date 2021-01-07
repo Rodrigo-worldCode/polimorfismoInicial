@@ -27,15 +27,14 @@ public class Program {
 
 		for (int i = 1; i <= num; i++) {
 			System.out.println("Product " + i + " data: ");
-			
 			char ans = 0;
 			
 			do {
 				System.out.print("Common, User or Imported (c/u/i): ");
 				ans = read.next().charAt(0);
-				
-			} while(ans !='c' && ans !='u' && ans !='i');
-			
+
+			} while (ans != 'c' && ans != 'u' && ans != 'i');
+
 			read.nextLine();
 			System.out.print("Name: ");
 			String name = read.nextLine();
@@ -47,19 +46,15 @@ public class Program {
 				Date manufactureDate = sdf.parse(read.next());
 
 				list.add(new UsedProduct(name, price, manufactureDate));
-
 			} else if (ans == 'i') {
 				System.out.print("Customs fee: ");
 				double customsFee = read.nextDouble();
 
 				list.add(new ImportedProduct(name, price, customsFee));
-
 			} else {
 
 				list.add(new Product(name, price));
-
 			}
-
 		}
 		System.out.println();
 		System.out.println("PRICE TAGS:");
@@ -67,7 +62,5 @@ public class Program {
 			System.out.println(x.priceTag());
 		}
 		read.close();
-
 	}
-
 }
